@@ -8,16 +8,12 @@ unsigned long long dupMasLargo(unsigned long long x){
         unsigned long long prefijo = x & mask2;
         prefijo = prefijo >> i;
         if(sufijo == prefijo){
-            return i;
+            unsigned sec = sufijo;
+            return ((unsigned long long)i << 32) | sec;
         } else {
             mask1 = mask1 >> 1;
             mask2 = mask1 << (i-1);
         }
     }
-    return 0;
-}
-
-int main() {
-    printf("%lld", dupMasLargo(0b0));
     return 0;
 }
