@@ -1,0 +1,100 @@
+Sistema operativo utilizado:
+Description:	Debian GNU/Linux 12 (bookworm)
+Versión del núcleo de linux:
+Linux AsusBustamante 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -DSANITIZE -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-dup.c dup.c test-util.c -lm -o dup.bin-san
+./dup.bin-san
+Tests unitarios
+Verificando con x = 0b01
+Verificando con x = 0b0
+Verificando con x = 0b11
+Verificando con x = 0b1 0110 0100 1001 0010 0100
+Verificando con x = 0x3af13c803af13c80
+Test unitarios aprobados
+------------------------------------------
+Benchmark: Se generan 100000 numeros aleatorios
+Los primeros numeros son:
+d7168acec9ec8f19 cc6690e7d2c37147 55d12895895563b1 8dd0f99af46d62eb 
+5d6283e506dc7bef ea8bc28d457c01f2 244010a936c49fe3 3e2dd3d04643379d 
+281c1eeccd48956a 1bdae4c7ff7308cf 834f8993ada01e6a 4bc8ba65466d4037 
+
+Se calcula el tiempo de calculo del duplicado mas largo
+con divisiones, restos y multiplicaciones
+Tiempo de cpu: 20 milisegundos
+--------------------------------------------------------
+Benchmark: Para los mismos numeros aleatorios se calcula
+el tiempo de calculo del duplicado mas largo utilizando
+la version de dupMasLargo que Ud. programo
+Tiempo de cpu: 9 milisegundos
+--------------------------------------------
+Verificando la correctitud de los resultados
+Aprobado
+Felicitaciones: aprobo los tests de este modo de ejecucion
+==== run-g ====
+gcc -g -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-dup.c dup.c test-util.c -lm -o dup.bin-g
+./dup.bin-g
+Tests unitarios
+Verificando con x = 0b01
+Verificando con x = 0b0
+Verificando con x = 0b11
+Verificando con x = 0b1 0110 0100 1001 0010 0100
+Verificando con x = 0x3af13c803af13c80
+Test unitarios aprobados
+------------------------------------------
+Benchmark: Se generan 100000 numeros aleatorios
+Los primeros numeros son:
+d7168acec9ec8f19 cc6690e7d2c37147 55d12895895563b1 8dd0f99af46d62eb 
+5d6283e506dc7bef ea8bc28d457c01f2 244010a936c49fe3 3e2dd3d04643379d 
+281c1eeccd48956a 1bdae4c7ff7308cf 834f8993ada01e6a 4bc8ba65466d4037 
+
+Se calcula el tiempo de calculo del duplicado mas largo
+con divisiones, restos y multiplicaciones
+Tiempo de cpu: 18 milisegundos
+--------------------------------------------------------
+Benchmark: Para los mismos numeros aleatorios se calcula
+el tiempo de calculo del duplicado mas largo utilizando
+la version de dupMasLargo que Ud. programo
+Tiempo de cpu: 7 milisegundos
+--------------------------------------------
+Verificando la correctitud de los resultados
+Aprobado
+Felicitaciones: aprobo los tests de este modo de ejecucion
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-dup.c dup.c test-util.c -lm -o dup.bin
+Midiendo cuanto demora la solucion del profesor
+rm -f tiempo-ref.txt
+chmod +x prof.ref-x86_64
+./prof.ref-x86_64 ref > /dev/null
+Tiempos de referencia =  1159 199
+Verificando y comparando con su solucion
+./dup.bin 1159 199
+Tests unitarios
+Verificando con x = 0b01
+Verificando con x = 0b0
+Verificando con x = 0b11
+Verificando con x = 0b1 0110 0100 1001 0010 0100
+Verificando con x = 0x3af13c803af13c80
+Test unitarios aprobados
+Benchmarks
+------------------------------------------
+Benchmark: Se generan 10000000 numeros aleatorios
+Los primeros numeros son:
+d7168acec9ec8f19 cc6690e7d2c37147 55d12895895563b1 8dd0f99af46d62eb 
+5d6283e506dc7bef ea8bc28d457c01f2 244010a936c49fe3 3e2dd3d04643379d 
+281c1eeccd48956a 1bdae4c7ff7308cf 834f8993ada01e6a 4bc8ba65466d4037 
+
+Se calcula el tiempo de calculo del duplicado mas largo
+con divisiones, restos y multiplicaciones
+Tiempo de cpu: 1152 milisegundos
+--------------------------------------------------------
+Benchmark: Para los mismos numeros aleatorios se calcula
+el tiempo de calculo del duplicado mas largo utilizando
+la version de dupMasLargo que Ud. programo
+Tiempo de cpu: 211 milisegundos
+Tiempo de cpu de la version del profesor: 199 milisegundos
+Porcentaje de sobrecosto: 6 %
+--------------------------------------------
+Verificando la correctitud de los resultados
+Benchmarks aprobados
+Felicitaciones: aprobo los tests de este modo de ejecucion
