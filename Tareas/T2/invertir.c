@@ -4,9 +4,19 @@
 
 #include "invertir.h"
 
+void invertir_segmento(char* l, char* r) {
+    while (l < r) {
+        char tmp = *l;
+        *l = *r;
+        *r = tmp;
+        l++;
+        r--;
+    }
+}
+
 //La función invertir altera el mismo string str que recibe como parámetro
 void invertir(char* s) {
-    // Invertimos
+    // invertimos todo el string
     char* l = s;
     char* r = s + strlen(s) - 1;
     while(l < r){
@@ -17,39 +27,65 @@ void invertir(char* s) {
         r--;
     }
 
-    // Eliminamos los espacios innecesarios
-    char *s2 = s;
-    int espacio_anterior = 1;
+    // eliminamos los espacios innecesarios
+    char *src = s;
+    char *dst = s;
 
-    while (*s) {
-        if (*s == ' ') {
+    while (*src == ' ') {
+        src++;
+    }
+
+    int espacio_anterior = 0;
+
+    while (*src) {
+        if (*src == ' ') {
             if (!espacio_anterior) {
-                *s2++ = ' ';
+                *dst++ = ' ';
                 espacio_anterior = 1;
             }
         } else {
-            *s2++ = *s;
+            *dst++ = *src;
             espacio_anterior = 0;
         }
-        s++;
+        src++;
     }
 
-    if (s2 != s && *(s2 - 1) == ' ') {
-        s2--;
+    if (dst > s && *(dst - 1) == ' ') {
+        dst--;
     }
 
-    *s2 = '\0';
+    *dst = '\0';
+
+    // invertir cada palabra
+    char* inicio = s;
+    char* fin = s;
+
+    while (*fin) {
+        while (*fin && *fin != ' ') {
+            fin++;
+        }
+
+        invertir_segmento(inicio, fin - 1);
+
+        if (*fin == ' ') {
+            inicio = fin + 1;
+            fin++;
+        }
+    }
 }
 
 
 //La función invertido retorna un nuevo string resultante sin alterar el parámetro str original
 char *invertido(char *s) {
-    /** Programe aqui la funcion invertido */
-}
+    char *copia = malloc(strlen(s) + 1);
+    strcpy(copia, s);
+    invertir(copia);
+    return copia;
+    }
 
-int main() {
-	char str[] = "  Esto    es un    ejemplo     ";
-    invertir(str);
-    printf("->%s<- \n", str);
+/*int main() {
+    char str[] = "  hola   que   tal ";
+    //invertir(str);
+    printf("%s", invertido(str));
     return 0;
-}
+}*/
