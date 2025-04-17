@@ -1,0 +1,99 @@
+Sistema operativo utilizado
+Linux AsusBustamante 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -DSANITIZE -Wall -Werror -pedantic -Wno-unused-function  test-intervalo.c intervalo.c test-util.c -lm -o intervalo.bin-san
+./intervalo.bin-san
+Tests unitarios
+Verificando el arbol vacio
+Verificando arbol de 3 nodos eliminando (1,1)
+Eliminando solo en subarbol izquierdo
+Verificando arbol de 3 nodos eliminando (1,2)
+Eliminando raiz y subarbol izquierdo
+Verificando arbol de 3 nodos eliminando (3,3)
+Eliminando solo subarbol derecho
+Verificando arbol de 3 nodos eliminando (2,3)
+Eliminando raiz y subarbol derecho
+Verificando arbol de 3 nodos eliminando (1,3)
+Eliminando todo el arbol
+Verificando ejemplo del enunciado
+Verificando un arbol de 100 mil nodos
+Eliminando (25001, 100000)
+-------------------------------------
+
+Aprobado
+Aprobado
+Tests masivos
+
+=========================
+Benchmark de desbalancear
+=========================
+Tiempo de cpu usado por su version: 277 milisegundos
+Aprobado
+Felicitaciones: aprobo los tests de este modo de ejecucion
+==== run-g ====
+gcc -g -Wall -Werror -pedantic -Wno-unused-function  test-intervalo.c intervalo.c test-util.c -lm -o intervalo.bin-g
+./intervalo.bin-g
+Tests unitarios
+Verificando el arbol vacio
+Verificando arbol de 3 nodos eliminando (1,1)
+Eliminando solo en subarbol izquierdo
+Verificando arbol de 3 nodos eliminando (1,2)
+Eliminando raiz y subarbol izquierdo
+Verificando arbol de 3 nodos eliminando (3,3)
+Eliminando solo subarbol derecho
+Verificando arbol de 3 nodos eliminando (2,3)
+Eliminando raiz y subarbol derecho
+Verificando arbol de 3 nodos eliminando (1,3)
+Eliminando todo el arbol
+Verificando ejemplo del enunciado
+Verificando un arbol de 100 mil nodos
+Eliminando (25001, 100000)
+-------------------------------------
+
+Aprobado
+Aprobado
+Tests masivos
+
+=========================
+Benchmark de desbalancear
+=========================
+Tiempo de cpu usado por su version: 8 milisegundos
+Aprobado
+Felicitaciones: aprobo los tests de este modo de ejecucion
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -pedantic -Wno-unused-function  test-intervalo.c intervalo.c test-util.c -lm -o intervalo.bin
+Midiendo cuanto demora la solucion del profesor
+rm -f tiempo-ref.txt
+chmod +x prof.ref-x86_64
+./prof.ref-x86_64 ref > /dev/null
+Tiempos de referencia =  261
+Verificando y comparando con su solucion
+./intervalo.bin 261
+Tests unitarios
+Verificando el arbol vacio
+Verificando arbol de 3 nodos eliminando (1,1)
+Eliminando solo en subarbol izquierdo
+Verificando arbol de 3 nodos eliminando (1,2)
+Eliminando raiz y subarbol izquierdo
+Verificando arbol de 3 nodos eliminando (3,3)
+Eliminando solo subarbol derecho
+Verificando arbol de 3 nodos eliminando (2,3)
+Eliminando raiz y subarbol derecho
+Verificando arbol de 3 nodos eliminando (1,3)
+Eliminando todo el arbol
+Verificando ejemplo del enunciado
+Verificando un arbol de 100 mil nodos
+Eliminando (25001, 100000)
+-------------------------------------
+
+Aprobado
+Aprobado
+
+=========================
+Benchmark de desbalancear
+=========================
+Tiempo de cpu usado por su version: 246 milisegundos
+Tiempo de la version del profesor : 261 milisegundos
+Porcentaje de sobrecosto: -5 %
+Aprobado
+Felicitaciones: aprobo los tests de este modo de ejecucion
