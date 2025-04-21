@@ -170,7 +170,7 @@ int main() {
     // malloc() reserva un bloque de memoria de un tamaño especifico y retorna un puntero a esta direccion
     // su principal uso es poder trabajar con memoria de manera dinamica
     int *p = malloc(sizeof(int)*10); // reservamos memoria para 10 enteros y obtenemos un puntero p que apunta al primer elemento de ese bloque
-    p[3] = 1; // podemos trabajar con este espacio de memoria
+    p[3] = 1; // podemos trabajar con este espacio de memoria, es equivalente a hacer *(p + 3) = 1;
     free(p); // es importante liberar esa memoria al terminar de usarla o puede generar fugas de memoria
     return 0;
 }
@@ -196,6 +196,11 @@ int main () {
     Punto* pv = &v;
     // Como tambien podemos tener punteros a punteros
     Punto** ppv = &pv;
+
+    // si tenemos un puntero a una estructura y queremos acceder a uno de los campos podemos hacer:
+    printf("%d", (*pv).x); // pv es el puntero que apunta al punto v, luego imprimimos su componente x
+    // o de manera equivalente
+    printf("%d", pv -> x);
 
     return 0;
 }
