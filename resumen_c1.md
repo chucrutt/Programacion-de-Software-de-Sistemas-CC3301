@@ -3,11 +3,11 @@
 ## Compilación
 Compilar es el proceso en el cuál el código fuente se traduce a un código máquina que puede ser entendido y ejecutado por el computador.
 
-Luego de escribir el código fuente en un archivo .c, llamamos dese la terminal al compilador que estemos usando (gcc) y ejecutamos el comando correspondiente para compilarlo.
+Luego de escribir el código fuente en un archivo .c, llamamos desde la terminal al compilador que estemos usando (gcc) y ejecutamos el comando correspondiente para compilarlo.
 
 - Para producir un ejecutable con fuente de un solo archivo: $ gcc -o nombre_ejecutable codigo_fuente.c
 
-Cuando trabajamos con proyectos más grandes o con multiples archivos fuente, en lugar de compilar todo directamante podemos crear módulos objeto (archivo que contiene código máquina pero no puede ejecutarse por si solo), asi podemos dividir y compilar nuestro programa en archivos en módulos más pequeños y manejables para luego enlazarlos y ejecutarlos en conjunto. 
+Cuando trabajamos con proyectos más grandes o con multiples archivos fuente, en lugar de compilar todo directamente podemos crear módulos objeto (archivo que contiene código máquina pero no puede ejecutarse por si solo), asi podemos dividir y compilar nuestro programa en archivos en módulos más pequeños y manejables para luego enlazarlos y ejecutarlos en conjunto. 
 
 - Para producir un módulo objeto: $ gcc -c -o nombre_modulo_objeto.o codigo_fuente.c
 - Para enlazar módulos: $ gcc -o nombre_ejecutable modulo1.o modulo2.o
@@ -143,8 +143,8 @@ Strings
 ```c
 #include <stdio.h>
 int main() {
-    // los strings no son mas que arreglos de caracteres que terminan en '/0'
-    char saludo[5] = {'H', 'O', 'l', 'a', '/0'};
+    // los strings no son mas que arreglos de caracteres que terminan en '\0'
+    char saludo[5] = {'H', 'O', 'l', 'a', '\0'};
     char str[] = "Hola"; // ambos son maneras equivalentes de inicializar el string
     // como tambien son arreglos podemos acceder a sus elementos con aritmetica de punteros
     char *r = str;
@@ -154,7 +154,7 @@ int main() {
     char* str_im = "Hola"; // inmutable
     
 
-    strlen(str); // retorna un entero con el largo real del string (sin '/0')
+    strlen(str); // retorna un entero con el largo real del string (sin '\0')
     strcpy(b, a); // copia el string a en el arreglo b
     return 0;
 }
@@ -211,7 +211,7 @@ Como usar punteros a punteros
 #include <stdio.h>
 
 void cambiarPuntero(int** ppx) {
-    int y = 2;
+    static int y = 2;
     *ppx = &y;
 }
 
