@@ -49,6 +49,7 @@ int main(){
     printf("%c", c); // character
     printf("%p", d); // pointer (direccion de memoria)
     printf("%lld", e); // long long (int de 64 bits)
+    printf("%llu", e); // unsigned long long
     printf("%lf", f); // double (float de 64 bits)
     printf("%s", g); // string
     return 0;
