@@ -2,18 +2,32 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main (int argc, char *argv[]){
+int main (int argc, char *argv[]) {
     // (i) leer secuencialmente todos los elementos de la cola, buscando el texto con mejor prioridad
     FILE *f = fopen(argv[1], "r+");
-    //FILE *f = fopen("cola-orig.txt", "r+");
+    
+    // archivo no existe
+    if(f == NULL) {
+        perror("fopen");
+        return 1;
+    }
+    // cola vacia
+    if(fgetc(f) == '0') {
+        fprintf(stderr, "error: cola.txt esta vacia\n");
+        return 1;
+    } else {
+        fseek(f, 0, SEEK_SET);
+    }
+    
     char s[6];
     fgets(s, sizeof(s), f);
     int n = atoi(s);
+
     // desde la segunda fila recorrer nombre y prioridad
-    char res[10];
+    char res[11];
     int maxPrio = -1;
-    long int filaPrio;
-    for(int i = 0; i < n; i++){
+    long int filaPrio = 0;
+    for(int i = 0; i < n; i++) {
         // obtener nombre
         char nombre[11];
         fgets(nombre, sizeof(nombre), f);
@@ -29,7 +43,7 @@ int main (int argc, char *argv[]){
         }    
     }
     // (ii) mostrarlo en pantalla
-    printf("%s", res);
+    printf("%s\n", res);
     // (iii) usar  fseek para actualizar el tamaño de la cola
     fseek(f, 0L, SEEK_SET);
     fprintf(f, "%-4d\n", n - 1);
