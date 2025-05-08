@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "sumar-str.h": "c"
-    }
+        "sumar-str.h": "c",
+        "stdio.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

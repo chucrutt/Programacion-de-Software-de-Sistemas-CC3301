@@ -30,13 +30,13 @@ Benchmark de invertir
 --------------------------------------------
 Verificando la correctitud de los resultados de invertir
 Ejecucion string enorme
-Tiempo de cpu: 7321 milisegundos
+Tiempo de cpu: 7185 milisegundos
 ------------------------------------------
 Benchmark de invertidos
 --------------------------------------------
 Verificando la correctitud de los resultados de invertir
 Ejecucion string enorme
-Tiempo de cpu: 7435 milisegundos
+Tiempo de cpu: 7028 milisegundos
 Aprobado
 Felicitaciones: aprobo los tests de este modo de ejecucion
 ==== run-g ====
@@ -67,13 +67,13 @@ Benchmark de invertir
 --------------------------------------------
 Verificando la correctitud de los resultados de invertir
 Ejecucion string enorme
-Tiempo de cpu: 3683 milisegundos
+Tiempo de cpu: 3850 milisegundos
 ------------------------------------------
 Benchmark de invertidos
 --------------------------------------------
 Verificando la correctitud de los resultados de invertir
 Ejecucion string enorme
-Tiempo de cpu: 3856 milisegundos
+Tiempo de cpu: 3936 milisegundos
 Aprobado
 Felicitaciones: aprobo los tests de este modo de ejecucion
 ==== run ====
@@ -82,9 +82,9 @@ Midiendo cuanto demora la solucion del profesor
 rm -f tiempo-ref.txt
 chmod +x prof.ref-x86_64
 ./prof.ref-x86_64 ref > /dev/null
-Tiempos de referencia =  1124 1117
+Tiempos de referencia =  1093 1085
 Verificando y comparando con su solucion
-./invertir.bin 1124 1117
+./invertir.bin 1093 1085
 Tests unitarios
 ----- Verificando funcion invertir ------
 Verificando con s = "the sky is blue"
@@ -111,16 +111,16 @@ Benchmark de invertir
 --------------------------------------------
 Verificando la correctitud de los resultados de invertir
 Ejecucion string enorme
-Tiempo de cpu: 1305 milisegundos
-Tiempo de cpu de la version del profesor: 1124 milisegundos
-Porcentaje de sobrecosto: 16 %
+Tiempo de cpu: 1420 milisegundos
+Tiempo de cpu de la version del profesor: 1093 milisegundos
+Porcentaje de sobrecosto: 29 %
 ------------------------------------------
 Benchmark de invertidos
 --------------------------------------------
 Verificando la correctitud de los resultados de invertir
 Ejecucion string enorme
-Tiempo de cpu: 1321 milisegundos
-Tiempo de cpu de la version del profesor: 1124 milisegundos
-Porcentaje de sobrecosto: 17 %
+Tiempo de cpu: 1415 milisegundos
+Tiempo de cpu de la version del profesor: 1093 milisegundos
+Porcentaje de sobrecosto: 29 %
 Benchmarks aprobados
 Felicitaciones: aprobo los tests de este modo de ejecucion

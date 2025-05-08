@@ -16,10 +16,12 @@ void invertir_segmento(char* l, char* r) {
 
 //La función invertir altera el mismo string str que recibe como parámetro
 void invertir(char* s) {
-    // invertimos todo el string
+    // Invertimos todo el string
     char* l = s;
-    char* r = s + strlen(s) - 1;
-    while(l < r){
+    char* r = s + strlen(s);
+    r--;
+
+    while (l < r) {
         char tmp = *l;
         *l = *r;
         *r = tmp;
@@ -27,9 +29,10 @@ void invertir(char* s) {
         r--;
     }
 
-    // eliminamos los espacios innecesarios
+    // Eliminamos los espacios innecesarios
     char *src = s;
     char *dst = s;
+    char *ultimo = NULL;
 
     while (*src == ' ') {
         src++;
@@ -40,36 +43,45 @@ void invertir(char* s) {
     while (*src) {
         if (*src == ' ') {
             if (!espacio_anterior) {
-                *dst++ = ' ';
+                *dst = ' ';
+                ultimo = dst;
+                dst++;
                 espacio_anterior = 1;
             }
         } else {
-            *dst++ = *src;
+            *dst = *src;
+            ultimo = dst;
+            dst++;
             espacio_anterior = 0;
         }
         src++;
     }
 
-    if (dst > s && *(dst - 1) == ' ') {
-        dst--;
+    if (ultimo && *ultimo == ' ') {
+        dst = ultimo;
     }
 
     *dst = '\0';
 
-    // invertir cada palabra
+    // Invertir cada palabra
     char* inicio = s;
     char* fin = s;
 
-    while (*fin) {
+    while (*inicio) {
+        fin = inicio;
         while (*fin && *fin != ' ') {
             fin++;
         }
 
-        invertir_segmento(inicio, fin - 1);
+        char* r = fin;
+        r--;
+
+        invertir_segmento(inicio, r);
 
         if (*fin == ' ') {
             inicio = fin + 1;
-            fin++;
+        } else {
+            inicio = fin;
         }
     }
 }
