@@ -3,5 +3,9 @@
         "sumar-str.h": "c",
         "stdio.h": "c"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "vscode_vibrancy.opacity": 0.5,
+    "vscode_vibrancy.disableFramelessWindow": true,
+    "vscode_vibrancy.refreshInterval": 1,
+    "vscode_vibrancy.theme": "Default Dark"
 }
