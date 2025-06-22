@@ -1,0 +1,119 @@
+Sistema operativo utilizado
+Linux AsusBustamante 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-integral.c integral.c -lm -o integral.bin-san
+./integral.bin-san
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2481
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2584
+Calculando en paralelo hasta 1 veces
+integral en [0.000000,0.200000] con 5000 intervalos= 0.042758
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2481
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2584
+Calculando en paralelo hasta 1 veces
+integral en [-0.200000,0.000000] con 5000 intervalos= 0.004913
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2481
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2584
+Calculando en paralelo hasta 1 veces
+integral en [0.200000,0.400000] con 5000 intervalos= 0.073853
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2481
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2584
+Calculando en paralelo hasta 1 veces
+integral en [0.400000,0.600000] con 5000 intervalos= 0.093288
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2481
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2584
+Calculando en paralelo hasta 1 veces
+integral par= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 804, speedup= 3.213930
+Felicitaciones: Su tarea funciona.
+==== run-g ====
+gcc -g -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-integral.c integral.c -lm -o integral.bin-g
+./integral.bin-g
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2258
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2243
+Calculando en paralelo hasta 1 veces
+integral en [-0.200000,0.000000] con 5000 intervalos= 0.004913
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2258
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2243
+Calculando en paralelo hasta 1 veces
+integral en [0.000000,0.200000] con 5000 intervalos= 0.042758
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2258
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2243
+Calculando en paralelo hasta 1 veces
+integral en [0.400000,0.600000] con 5000 intervalos= 0.093288
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2258
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2243
+Calculando en paralelo hasta 1 veces
+integral en [0.200000,0.400000] con 5000 intervalos= 0.073853
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2258
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 2243
+Calculando en paralelo hasta 1 veces
+integral par= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 685, speedup= 3.274453
+Felicitaciones: Su tarea funciona.
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-integral.c integral.c -lm -o integral.bin
+./integral.bin
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+Calculando en paralelo hasta 4 veces
+integral en [-0.200000,0.000000] con 5000 intervalos= 0.004913
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+Calculando en paralelo hasta 4 veces
+integral en [0.400000,0.600000] con 5000 intervalos= 0.093288
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+Calculando en paralelo hasta 4 veces
+integral en [0.200000,0.400000] con 5000 intervalos= 0.073853
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+Calculando en paralelo hasta 4 veces
+integral en [0.000000,0.200000] con 5000 intervalos= 0.042758
+Calculando secuencialmente 2 veces
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+integral en [-0.200000,0.600000] con 20000 intervalos= 0.214813
+integral= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 1658
+Calculando en paralelo hasta 4 veces
+integral par= 0.214813, valor esperado= 0.214813, error= 0.000000, tiempo= 495, speedup= 3.349495
+Felicitaciones: el speedup es mejor que 1.7x.  Su tarea funciona.
